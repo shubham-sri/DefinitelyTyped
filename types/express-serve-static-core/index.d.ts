@@ -16,6 +16,7 @@ declare global {
     namespace Express {
         // These open interfaces may be extended in an application-specific manner via declaration merging.
         // See for example method-override.d.ts (https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/method-override/index.d.ts)
+        interface NextFunction {}
         interface Request {}
         interface Response {}
         interface Application {}
@@ -31,7 +32,7 @@ export {};
 
 export type Query = ParsedQs;
 
-export interface NextFunction {
+export interface NextFunction extends Express.NextFunction {
     (err?: any): void;
     /**
      * "Break-out" of a router by calling {next('router')};
